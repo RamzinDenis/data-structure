@@ -78,6 +78,23 @@ class LinkedList {
     }
   }
 
+  deleteHead() {
+    if (!this.head) {
+      return null;
+    }
+
+    const element = this.head;
+
+    if (!this.head.next) {
+      this.head = null;
+    } else {
+      this.head = this.head.next;
+      this.tail = null;
+    }
+
+    return element;
+  }
+
   toArray() {
     let currentNode = this.head;
     const elements = [];
@@ -91,4 +108,6 @@ class LinkedList {
   }
 }
 
-const linkedList = new LinkedList();
+module.exports = {
+  LinkedList,
+};
